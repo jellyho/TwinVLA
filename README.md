@@ -264,7 +264,7 @@ git clone https://github.com/jellyho/Tabletop-Sim.git --recursive
 
 cd Tabletop-Sim
 pip install -r requirements.txt
-pip install -e .
+pip install 'numpy<2'
 ```
 
 #### 2️⃣ Evaluate TwinVLA
