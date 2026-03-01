@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="TwinVLA: Data-Efficient Bimanual Manipulation with Twin Single-Arm Vision-Language-Action Models">
+    content="TwinVLA: Data-Efficient Bimanual Manipulation with Twin Single-Arm Vision-Language-Action Models">
   <meta name="keywords" content="TwinVLA, VLA, Bimanual">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
@@ -14,7 +15,7 @@
       margin: 40px 0;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     }
-    
+
     .tldr-title {
       color: #333 !important;
       font-size: 2rem !important;
@@ -23,32 +24,32 @@
       display: flex;
       align-items: center;
     }
-    
+
     .tldr-title::before {
       content: "📌";
       margin-right: 12px;
       font-size: 1.8rem;
     }
-    
+
     .tldr-video-container {
       border-radius: 6px;
       overflow: hidden;
       margin: 20px 0;
       border: 1px solid #e0e0e0;
     }
-    
+
     .tldr-video {
       width: 100%;
       display: block;
     }
-    
+
     .tldr-highlight {
       background-color: #e8e8e8;
       padding: 2px 6px;
       border-radius: 4px;
       font-weight: 600;
     }
-    
+
     @media (max-width: 768px) {
       .tldr-title {
         font-size: 1.8rem !important;
@@ -65,21 +66,19 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E0BNHRNJYF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-E0BNHRNJYF');
   </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.png">
 
@@ -89,93 +88,93 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
+
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://jellyho.github.io">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
       </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://jellyho.github.io">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
         </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="">
-            We are working on it!
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
           </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="">
+              We are working on it!
+            </a>
+          </div>
         </div>
       </div>
+
     </div>
-
-  </div>
-</nav>
+  </nav>
 
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">TwinVLA: Data-Efficient Bimanual Manipulation with Twin Single-Arm Vision-Language-Action Models</h1>
-          <div class="is-size-5 publication-venue">
-            <h2 class="title">ICLR 2026</h2>
-          </div>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://jellyho.github.io">Hokyun Im</a><sup>1, 2</sup>,</span>
-            <span class="author-block">
-              <a href="https://jinprelude.github.io/">Euijin Jeong</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://www.microsoft.com/en-us/research/people/akolobov/">Andrey Kolobov</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://www.microsoft.com/en-us/research/people/jianf/">Jianlong Fu</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://youngwoon.github.io/">Youngwoon Lee</a><sup>1</sup>,
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Yonsei University,</span>
-            <span class="author-block"><sup>2</sup>Microsoft Research</span>
-          </div>
-
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
           <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="./TwinVLA.pdf"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
+            <h1 class="title is-1 publication-title">TwinVLA: Data-Efficient Bimanual Manipulation with Twin Single-Arm
+              Vision-Language-Action Models</h1>
+            <div class="is-size-5 publication-venue">
+              <h2 class="title">ICLR 2026</h2>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://jellyho.github.io">Hokyun Im</a><sup>1, 2</sup>,</span>
+              <span class="author-block">
+                <a href="https://jinprelude.github.io/">Euijin Jeong</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.microsoft.com/en-us/research/people/akolobov/">Andrey Kolobov</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.microsoft.com/en-us/research/people/jianf/">Jianlong Fu</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://youngwoon.github.io/">Youngwoon Lee</a><sup>1</sup>,
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Yonsei University,</span>
+              <span class="author-block"><sup>2</sup>Microsoft Research</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="./TwinVLA.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
                       <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2511.05275"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2511.05275" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
                       <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Video Link. -->
-              <!-- <span class="link-block">
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <!-- <span class="link-block">
                 <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -184,40 +183,50 @@
                   <span>Video</span>
                 </a>
               </span> -->
-              <!-- Code Link. -->
-               <span class="link-block">
-                <a href="https://github.com/jellyho/Tabletop-Sim"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/jellyho/Tabletop-Sim"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
                       <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code (Tabletop-Sim)</span>
+                    </span>
+                    <span>Code (Tabletop-Sim)</span>
                   </a>
-              </span>
-              <span class="link-block">
-                <a href="https://github.com/jellyho/TwinVLA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/jellyho/TwinVLA"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
                       <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code (TwinVLA) (Coming Soon!)</span>
+                    </span>
+                    <span>Code (TwinVLA) (Coming Soon!)</span>
                   </a>
-              </span>
+                </span>
+                <span class="link-block">
+                  <a href="https://huggingface.co/collections/jellyho/twinvla-datasets"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fa fa-database" aria-hidden="true"></i>
+                    </span>
+                    <span>Datasets</span>
+                  </a>
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Paper video. -->
-<section class="section" style="padding-top: 0;">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
+  <!-- Paper video. -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
           <div class="tldr-container">
-            <h2 class="tldr-title">TL;DR: Data-efficient, high-performance bimanual manipulation without any bimanual pre-training</h2>
+            <h2 class="tldr-title">TL;DR: Data-efficient, high-performance bimanual manipulation without any bimanual
+              pre-training</h2>
             <!-- <div class="tldr-video-container">
               <video class="tldr-video" id="teaser" autoplay muted loop controls>
                 <source src="./static/videos/TwinVLA_Video.mp4" type="video/mp4">
@@ -228,353 +237,381 @@
               <!-- <img src="./static/images/twinvla.png" alt="Teaser"> Short video clip would be better? -->
               <div class="content has-text-justified">
                 <p>
-                  Vision-language-action models (VLAs) trained on large-scale robotic datasets have demonstrated strong performance on manipulation tasks, including bimanual tasks.
-                  However, because most public datasets focus on single-arm demonstrations, adapting VLAs for bimanual tasks typically requires substantial additional bimanual data and fine-tuning. To address this challenge, we introduce <b>TwinVLA</b>, a modular framework that composes two copies of a pretrained single-arm VLA into a coordinated bimanual VLA.
-                  Unlike monolithic cross-embodiment models trained on mixtures of single-arm and bimanual data, TwinVLA improves both data efficiency and performance by composing pretrained single-arm policies. Across diverse bimanual tasks in real-world and simulation settings, TwinVLA outperforms its direct competitor RDT-1B, a monolithic model of comparable size without requiring <i>any</i> bimanual pretraining. 
-                  Furthermore, it narrows the gap to state-of-the-art model, π0 which rely on extensive proprietary biamnual data and compute cost. These results establish our modular composition approach as a data-efficient and scalable path toward high-performance bimanual manipulation, leveraging existing public single-arm data.
+                  Vision-language-action models (VLAs) trained on large-scale robotic datasets have demonstrated strong
+                  performance on manipulation tasks, including bimanual tasks.
+                  However, because most public datasets focus on single-arm demonstrations, adapting VLAs for bimanual
+                  tasks typically requires substantial additional bimanual data and fine-tuning. To address this
+                  challenge, we introduce <b>TwinVLA</b>, a modular framework that composes two copies of a pretrained
+                  single-arm VLA into a coordinated bimanual VLA.
+                  Unlike monolithic cross-embodiment models trained on mixtures of single-arm and bimanual data, TwinVLA
+                  improves both data efficiency and performance by composing pretrained single-arm policies. Across
+                  diverse bimanual tasks in real-world and simulation settings, TwinVLA outperforms its direct
+                  competitor RDT-1B, a monolithic model of comparable size without requiring <i>any</i> bimanual
+                  pretraining.
+                  Furthermore, it narrows the gap to state-of-the-art model, π0 which rely on extensive proprietary
+                  biamnual data and compute cost. These results establish our modular composition approach as a
+                  data-efficient and scalable path toward high-performance bimanual manipulation, leveraging existing
+                  public single-arm data.
               </div>
             </div>
           </div>
         </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<hr />
+  <hr />
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <h2 class="title is-3">TwinVLA</h2>
-        <img src="./static/images/overview.png" alt="Teaser"> <!-- Short video clip would be better? -->
-        <div class="content has-text-justified">
-          <p>
-            Inspired by humans' two-arm coordination for bimanual manipulation, TwinVLA duplicates a VLM backbone pretrained on cross-embodiment single-arm data (<i>Left</i>) to form two arm-specific branches linked via <b>Joint Attention</b> (<i>Right</i>).
-            Shared inputs (ego-centric views, language instructions) are routed via a mixture-of-experts (MoE) to improve computational efficiency.
-            Only the VLM backbone is duplicated, keeping the increase in model size minimal.
-          </p>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">TwinVLA</h2>
+          <img src="./static/images/overview.png" alt="Teaser"> <!-- Short video clip would be better? -->
+          <div class="content has-text-justified">
+            <p>
+              Inspired by humans' two-arm coordination for bimanual manipulation, TwinVLA duplicates a VLM backbone
+              pretrained on cross-embodiment single-arm data (<i>Left</i>) to form two arm-specific branches linked via
+              <b>Joint Attention</b> (<i>Right</i>).
+              Shared inputs (ego-centric views, language instructions) are routed via a mixture-of-experts (MoE) to
+              improve computational efficiency.
+              Only the VLM backbone is duplicated, keeping the increase in model size minimal.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- 3rd Column -->
-    <div class="column">
-      <div class="content">
-        <h3 class="title is-4">1. Single Arm VLA</h3>
-        <img src="./static/images/singlevla.png" alt="Teaser">
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- 3rd Column -->
+      <div class="column">
+        <div class="content">
+          <h3 class="title is-4">1. Single Arm VLA</h3>
+          <img src="./static/images/singlevla.png" alt="Teaser">
+          <p>
+            We first design SingleVLA, an efficient and lightweight single-arm VLA policy, designed for future extension
+            into a bimanual model (TwinVLA).
+            The core of SingleVLA, pre-trained on a large-scale dataset, is the standardization of all actions into an
+            absolute end-effector pose with a 6D rotation representation.
+            This approach ensures consistent control across different types of robots, securing compatibility and
+            facilitating the eventual expansion to bimanual manipulation.
+          </p>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <!-- 1st Column -->
+        <div class="column">
+          <div class="content">
+            <h3 class="title is-4">2. Joint Attention</h3>
+            <img src="./static/images/joint_attn.png" alt="Teaser" style="width: 70%; display: block; margin: auto;">
+            <p></p>
+            <p>
+              <b>Joint Attnetion</b> integrates inputs from both arms, which is achieved by sharing only the
+              self-attention layers between the VLM backbones.
+              A specially designed causal attention mask then enables symmetric coordination, allowing each arm to
+              access shared information and half of the other arm's tokens without violating autoregressive constraints.
+            </p>
+          </div>
+        </div>
+        <!-- 2nd Column -->
+        <div class="column">
+          <div class="content">
+            <h3 class="title is-4">3. Mixture of Experts</h3>
+            <img src="./static/images/transformer.png" alt="Teaser" style="width: 90%; display: block; margin: auto;">
+            <p></p>
+            <p>
+              To efficiently handle redundant common inputs, TwinVLA uses a <b>MoE</b> mechanism to reduce the overall
+              token length.
+              For other duplicated components not covered by the MoE, it averages their outputs, which simulates a
+              single shared layer without merging parameters to significantly optimize VRAM usage.
+              We further stabilize this by simple trick called attention re-weighting.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <hr />
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Experiments</h2>
+          <img src="./static/images/taskoverview.png" alt="Teaser" style="width: 100%; display: block; margin: auto;">
+          <div class="content has-text-justified">
+            <p>
+              We conduct experiments on diverse bimanual manipulation tasks in both simulation and the real world to
+              test <b>TwinVLA</b>'s ability to achieve strong performance by leveraging pretrained knowledge from
+              abundant <i>single-arm data</i>.
+              We compare our method against three key policies: <b>RDT-1B</b>, a monolithic model of comparable size, to
+              demonstrate our superior data efficiency;
+              <b>π₀</b>, a significantly larger state-of-the-art model, to assess how closely we can approach the
+              performance ceiling that relies on extensive proprietary bimanual data;
+              and <b>Diffusion Policy (DP)</b>, to highlight the critical advantages of pretraining.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-4">Real World (Anubis Robot)</h2>
+          <img src="./static/images/real_seaborn_color_v2.png" alt="Tabletop Real World Results">
+        </div>
+      </div>
+      <div class="content has-text-justified">
         <p>
-          We first design SingleVLA, an efficient and lightweight single-arm VLA policy, designed for future extension into a bimanual model (TwinVLA).
-          The core of SingleVLA, pre-trained on a large-scale dataset, is the standardization of all actions into an absolute end-effector pose with a 6D rotation representation.
-          This approach ensures consistent control across different types of robots, securing compatibility and facilitating the eventual expansion to bimanual manipulation.
+          We evalute <b>TwinVLA</b> and baselines on a real-world dual-arm robot platform named <i>Anubis</i>.
+          This involves three complex tabletop manipulation tasks that require careful coordination.
+          As presented in above, our model, TwinVLA, <b>outperforms</b> its direct competitor, RDT-1B.
+          This result is particularly noteworthy given that TwinVLA was pretrained on a substantially smaller single-arm
+          dataset (0.5M vs. RDT-1B's 1.4M) with far less computational cost, demonstrating the data efficiency of our
+          approach.
+          The comparatively low performance of DP further underscores the critical importance of <b>pretraining</b>.
+          Among all methods, π₀ ultimately demonstrated the best overall performance.
         </p>
       </div>
-    </div>
-    <div class="columns is-centered">
-      <!-- 1st Column -->
-      <div class="column">
-        <div class="content">
-          <h3 class="title is-4">2. Joint Attention</h3>
-          <img src="./static/images/joint_attn.png" alt="Teaser" style="width: 70%; display: block; margin: auto;">
-          <p></p>
-          <p>
-            <b>Joint Attnetion</b> integrates inputs from both arms, which is achieved by sharing only the self-attention layers between the VLM backbones.
-            A specially designed causal attention mask then enables symmetric coordination, allowing each arm to access shared information and half of the other arm's tokens without violating autoregressive constraints.
-          </p>
+      <div class="carousel results-carousel">
+        <div class="item item-fold1">
+          <video poster="" id="fold1" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/fold_towel.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-extract1">
+          <video poster="" id="extract1" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/extraact_keys.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-carrot1">
+          <video poster="" id="carrot1" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/carrot_1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-brush1">
+          <video poster="" id="brush1" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/brush_1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-kirby1">
+          <video poster="" id="kirby1" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/kirby_1.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
-      <!-- 2nd Column -->
-      <div class="column">
-        <div class="content">
-          <h3 class="title is-4">3. Mixture of Experts</h3>
-          <img src="./static/images/transformer.png" alt="Teaser" style="width: 90%; display: block; margin: auto;">
-          <p></p>
-          <p>
-            To efficiently handle redundant common inputs, TwinVLA uses a <b>MoE</b> mechanism to reduce the overall token length.
-            For other duplicated components not covered by the MoE, it averages their outputs, which simulates a single shared layer without merging parameters to significantly optimize VRAM usage.
-            We further stabilize this by simple trick called attention re-weighting.
-          </p>
+  </section>
+
+  <hr />
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-4">Simulation</h2>
+          <img src="./static/images/sim_seaborn_color_v2.png" alt="Tabletop-Sim Results">
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-
-<hr />
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <h2 class="title is-3">Experiments</h2>
-        <img src="./static/images/taskoverview.png" alt="Teaser" style="width: 100%; display: block; margin: auto;">
-        <div class="content has-text-justified">
-          <p>
-            We conduct experiments on diverse bimanual manipulation tasks in both simulation and the real world to test <b>TwinVLA</b>'s ability to achieve strong performance by leveraging pretrained knowledge from abundant <i>single-arm data</i>. 
-            We compare our method against three key policies: <b>RDT-1B</b>, a monolithic model of comparable size, to demonstrate our superior data efficiency;
-             <b>π₀</b>, a significantly larger state-of-the-art model, to assess how closely we can approach the performance ceiling that relies on extensive proprietary bimanual data; 
-            and <b>Diffusion Policy (DP)</b>, to highlight the critical advantages of pretraining.
-          </p>
+      <div class="content has-text-justified">
+        <p>
+          We further evaluate <b>TwinVLA</b> and baselines in two simulation benchmarks, <i>RoboTwin 2.0</i> and our
+          custom <i>Tabletop-Sim</i>, across a wide range of dexterous bimanual tasks.
+          The from-scratch model (DP) again shows the worst performance, highlighting the importance of
+          <b>pretraining</b>.
+          <b>TwinVLA</b> consistently <b>outperforms</b> RDT-1B in most scenarios and achieves performance
+          <b>comparable</b> to π₀ by effectively leveraging single-arm data and the modularity of bimanual manipulation.
+          Notably, <b>TwinVLA</b> even <b>surpasses</b> π₀ in the <i>Tabletop-Sim</i> Easy tasks, despite π₀ being
+          trained on an extensive corpus of high-quality bimanual data.
+        </p>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h3 class="title is-5">Tabletop-Sim</h3>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <h2 class="title is-4">Real World (Anubis Robot)</h2>
-        <img src="./static/images/real_seaborn_color_v2.png" alt="Tabletop Real World Results">
-      </div>
-    </div>
-    <div class="content has-text-justified">
-      <p>
-       We evalute <b>TwinVLA</b> and baselines on a real-world dual-arm robot platform named <i>Anubis</i>. 
-       This involves three complex tabletop manipulation tasks that require careful coordination.
-       As presented in above, our model, TwinVLA, <b>outperforms</b> its direct competitor, RDT-1B. 
-       This result is particularly noteworthy given that TwinVLA was pretrained on a substantially smaller single-arm dataset (0.5M vs. RDT-1B's 1.4M) with far less computational cost, demonstrating the data efficiency of our approach. 
-       The comparatively low performance of DP further underscores the critical importance of <b>pretraining</b>.
-       Among all methods, π₀ ultimately demonstrated the best overall performance.
-      </p>
-    </div>
-    <div class="carousel results-carousel">
-      <div class="item item-fold1">
-        <video poster="" id="fold1" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/fold_towel.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-extract1">
-        <video poster="" id="extract1" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/extraact_keys.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-carrot1">
-        <video poster="" id="carrot1" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/carrot_1.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-brush1">
-        <video poster="" id="brush1" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/brush_1.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-kirby1">
-        <video poster="" id="kirby1" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/kirby_1.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-    </div>
-</section>
-
-<hr />
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <h2 class="title is-4">Simulation</h2>
-        <img src="./static/images/sim_seaborn_color_v2.png" alt="Tabletop-Sim Results">
-      </div>
-    </div>
-    <div class="content has-text-justified">
-      <p>
-        We further evaluate <b>TwinVLA</b> and baselines in two simulation benchmarks, <i>RoboTwin 2.0</i> and our custom <i>Tabletop-Sim</i>, across a wide range of dexterous bimanual tasks.
-        The from-scratch model (DP) again shows the worst performance, highlighting the importance of <b>pretraining</b>.
-        <b>TwinVLA</b> consistently <b>outperforms</b> RDT-1B in most scenarios and achieves performance <b>comparable</b> to π₀ by effectively leveraging single-arm data and the modularity of bimanual manipulation.
-        Notably, <b>TwinVLA</b> even <b>surpasses</b> π₀ in the <i>Tabletop-Sim</i> Easy tasks, despite π₀ being trained on an extensive corpus of high-quality bimanual data.
-      </p>
-    </div>
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <h3 class="title is-5">Tabletop-Sim</h3>
-      </div>
-    </div>
-    <div class="carousel results-carousel">
-      <div class="item item-dish">
-        <video poster="" id="dish" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/dish.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-box">
-        <video poster="" id="box" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/box.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-lift">
-        <video poster="" id="lift" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/lift.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-shoes">
-        <video poster="" id="shoes" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/shoes.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-    </div>
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <br />
-        <h3 class="title is-5">RoboTwin 2.0</h3>
-      </div>
-    </div>
-    <div class="carousel results-carousel">
-      <div class="item item-block_ranking">
-        <video poster="" id="block_ranking" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/block_ranking_size.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-stack_bowl">
-        <video poster="" id="stack_bowl" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/stack_bowl.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-hang_mug">
-        <video poster="" id="hang_mug" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/hang_mug.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-handover">
-        <video poster="" id="shoes" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/handover.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-stack_box">
-        <video poster="" id="stack_box" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/stack_block.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-bread">
-        <video poster="" id="bread" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/bread.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-grab">
-        <video poster="" id="grab" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/grab.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr />
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <!-- 1st Column -->
-      <div class="column">
-        <div class="content">
-          <h3 class="title is-4">Language following</h3>
-          <img src="./static/images/language_following_seaborn_color_v2.png" alt="Teaser" style="width:80%; display: block; margin: auto;">
-          <p></p>
-          <p>
-            To test if fine-tuning degrades a VLM's ability to follow nuanced instructions, we evaluate on multi-task from Tabletop-Sim.
-            In this evaluation, TwinVLA outperformed both RDT-1B and π₀, demonstrates its ability to function effectively as a VLA, even without pre-training on bimanual data.
-          </p>
+      <div class="carousel results-carousel">
+        <div class="item item-dish">
+          <video poster="" id="dish" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/dish.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-box">
+          <video poster="" id="box" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/box.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-lift">
+          <video poster="" id="lift" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/lift.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shoes">
+          <video poster="" id="shoes" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shoes.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
-      <!-- 2nd Column -->
-      <div class="column">
-        <div class="content">
-          <h3 class="title is-4">Data efficiency</h3>
-          <img src="./static/images/efficiency_seaborn.png" alt="Teaser" style="width: 70%; display: block; margin: auto;">
-          <p>
-            TwinVLA demonstrates rapid adaptation to new bimanual target tasks, despite having no bimanual pre-training.
-            This fast adaptation was validated in experiments where TwinVLA exhibited a steep learning curve, surpassing the performance of RDT with just 50 demonstration episodes.
-          </p>
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <br />
+          <h3 class="title is-5">RoboTwin 2.0</h3>
+        </div>
+      </div>
+      <div class="carousel results-carousel">
+        <div class="item item-block_ranking">
+          <video poster="" id="block_ranking" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/block_ranking_size.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-stack_bowl">
+          <video poster="" id="stack_bowl" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/stack_bowl.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-hang_mug">
+          <video poster="" id="hang_mug" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/hang_mug.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-handover">
+          <video poster="" id="shoes" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/handover.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-stack_box">
+          <video poster="" id="stack_box" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/stack_block.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-bread">
+          <video poster="" id="bread" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/bread.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-grab">
+          <video poster="" id="grab" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/grab.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <br />
-        <h3 class="title is-5">Tabletop-Sim Language following</h3>
-      </div>
-    </div>
-    <div class="carousel results-carousel">
-      <div class="item item-dish" style="margin-bottom: 40px;">
-        <video poster="" id="dish" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/brown-blue.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-box" style="margin-bottom: 40px;">
-        <video poster="" id="box" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/white-blue.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-box" style="margin-bottom: 40px;">
-        <video poster="" id="box" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/yellow-blue.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-lift" style="margin-bottom: 40px;">
-        <video poster="" id="lift" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/brown-green.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-shoes" style="margin-bottom: 40px;">
-        <video poster="" id="shoes" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/white-green.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-shoes" style="margin-bottom: 40px;">
-        <video poster="" id="shoes" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/yellow-green.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<hr />
+  <hr />
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <h2 class="title is-4">Ablation Study</h2>
-        <img src="./static/images/ablation_seaborn.png" alt="Teaser" style="width: 80%; display: block; margin: auto;"> <!-- Short video clip would be better? -->
-        <div class="content has-text-justified">
-          <p>
-            We conducted a comprehensive ablation study to validate our key design choices. The sequential removal of our core components—Joint Attention, MoE integration, and Attention Re-weighting—each led to a significant degradation in performance. The results particularly highlighted that Joint Attention is the most critical mechanism for bimanual coordination. Furthermore, additional experiments validated the essential role of single-arm pre-training and confirmed that our twin-structure design is inherently more effective for bimanual tasks than a comparable monolithic model. Collectively, these findings provide strong evidence that every component of TwinVLA is a meaningful contributor to its overall performance.
-          </p>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <!-- 1st Column -->
+        <div class="column">
+          <div class="content">
+            <h3 class="title is-4">Language following</h3>
+            <img src="./static/images/language_following_seaborn_color_v2.png" alt="Teaser"
+              style="width:80%; display: block; margin: auto;">
+            <p></p>
+            <p>
+              To test if fine-tuning degrades a VLM's ability to follow nuanced instructions, we evaluate on multi-task
+              from Tabletop-Sim.
+              In this evaluation, TwinVLA outperformed both RDT-1B and π₀, demonstrates its ability to function
+              effectively as a VLA, even without pre-training on bimanual data.
+            </p>
+          </div>
+        </div>
+        <!-- 2nd Column -->
+        <div class="column">
+          <div class="content">
+            <h3 class="title is-4">Data efficiency</h3>
+            <img src="./static/images/efficiency_seaborn.png" alt="Teaser"
+              style="width: 70%; display: block; margin: auto;">
+            <p>
+              TwinVLA demonstrates rapid adaptation to new bimanual target tasks, despite having no bimanual
+              pre-training.
+              This fast adaptation was validated in experiments where TwinVLA exhibited a steep learning curve,
+              surpassing the performance of RDT with just 50 demonstration episodes.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <br />
+          <h3 class="title is-5">Tabletop-Sim Language following</h3>
+        </div>
+      </div>
+      <div class="carousel results-carousel">
+        <div class="item item-dish" style="margin-bottom: 40px;">
+          <video poster="" id="dish" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/brown-blue.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-box" style="margin-bottom: 40px;">
+          <video poster="" id="box" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/white-blue.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-box" style="margin-bottom: 40px;">
+          <video poster="" id="box" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/yellow-blue.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-lift" style="margin-bottom: 40px;">
+          <video poster="" id="lift" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/brown-green.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shoes" style="margin-bottom: 40px;">
+          <video poster="" id="shoes" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/white-green.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shoes" style="margin-bottom: 40px;">
+          <video poster="" id="shoes" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/yellow-green.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{
+  <hr />
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-4">Ablation Study</h2>
+          <img src="./static/images/ablation_seaborn.png" alt="Teaser"
+            style="width: 80%; display: block; margin: auto;"> <!-- Short video clip would be better? -->
+          <div class="content has-text-justified">
+            <p>
+              We conducted a comprehensive ablation study to validate our key design choices. The sequential removal of
+              our core components—Joint Attention, MoE integration, and Attention Re-weighting—each led to a significant
+              degradation in performance. The results particularly highlighted that Joint Attention is the most critical
+              mechanism for bimanual coordination. Furthermore, additional experiments validated the essential role of
+              single-arm pre-training and confirmed that our twin-structure design is inherently more effective for
+              bimanual tasks than a comparable monolithic model. Collectively, these findings provide strong evidence
+              that every component of TwinVLA is a meaningful contributor to its overall performance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{
 im2026twinvla,
 title={Twin{VLA}: Data-Efficient Bimanual Manipulation with Twin Single-Arm Vision-Language-Action Models},
 author={Hokyun Im and Euijin Jeong and Andrey Kolobov and Jianlong Fu and Youngwoon Lee},
@@ -582,23 +619,24 @@ booktitle={The Fourteenth International Conference on Learning Representations},
 year={2026},
 url={https://openreview.net/forum?id=jG9W6nAwVz}
 }</code></pre>
-  </div>
-</section>
+    </div>
+  </section>
 
 
-<footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
             <p style="text-align: center;">
-            We used template from <a href="https://nerfies.github.io/">Nerfies</a>.
+              We used template from <a href="https://nerfies.github.io/">Nerfies</a>.
             </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
+
 </html>
