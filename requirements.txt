@@ -1,0 +1,23 @@
+torch==2.7.1
+torchvision==0.22.1
+PyYAML>=6.0
+deepspeed==0.16.3
+tqdm>=4.65.0
+transformers @ git+https://github.com/huggingface/transformers.git@84f0186e8971a21bcda9b446a8a74f0f1a958f1c
+diffusers>=0.31.0
+wandb>=0.19.0
+tensorflow==2.15.0
+numpy<2.0.0
+dlimp @ git+https://github.com/kvablack/dlimp@5edaa4691567873d495633f2708982b42edf1972
+ml_collections==1.0.0
+accelerate>=0.26.0
+tensorflow-graphics==2021.12.3
+imageio[ffmpeg]
+peft==0.17.1
+easydict
+draccus
+timm
+matplotlib==3.1.0
+h5py==3.12.1
+
+-e .

@@ -1,0 +1,23 @@
+{
+    "auto_map": {
+        "AutoProcessor": "processing_eagle2_5_vl.Eagle2_5_VLProcessor",
+        "AutoImageProcessor": "image_processing_eagle2_5_vl_fast.Eagle2_5_VLImageProcessorFast"
+    },
+    "image_processor_type": "Eagle2_5_VLImageProcessorFast",
+    "processor_class": "Eagle2_5_VLProcessor",
+    "image_mean": [0.5, 0.5, 0.5],
+    "image_std": [0.5, 0.5, 0.5],
+    "do_resize": false,
+    "size": {
+        "height": 448,
+        "width": 448
+    },
+    "max_dynamic_tiles": 12,
+    "min_dynamic_tiles": 1,
+    "tokens_per_tile": 256,
+    "use_thumbnail": true,
+    "do_rescale": true,
+    "do_normalize": true,
+    "do_pad": false,
+    "do_convert_rgb": true
+}
