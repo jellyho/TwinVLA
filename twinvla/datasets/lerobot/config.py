@@ -1,10 +1,10 @@
 TabletopSimConfig = {
-    'proprio' : 'observation.state',
-    'action' : 'action',
+    'proprio' : 'observation.state.ee_6d_pos',
+    'action' : 'action.ee_6d_pos',
     'language_instruction': 'task',
-    'image_primary' : 'observation.images.agentview_image',
-    'image_wrist_l' : 'observation.images.left_wrist_image',
-    'image_wrist_r' : 'observation.images.right_wrist_image',
+    'image_primary' : 'observation.images.agentview',
+    'image_wrist_l' : 'observation.images.wrist_left',
+    'image_wrist_r' : 'observation.images.wrist_right',
     'mask': [True] * 3 + [False] * 7 + [True] * 3 + [False] * 7 
 }
 
