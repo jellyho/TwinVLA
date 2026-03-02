@@ -275,6 +275,12 @@ After installing the simulator, you can run the evaluation by executing:
 sh tabletop_run.sh /path/to/checkpoint <task-name>  # e.g. aloha_handover_box
 ```
 
+You can also try using our fine-tuned model ([Models](https://huggingface.co/collections/jellyho/twinvla)) on Tabletop-Sim:
+```bash
+sh tabletop_run.sh jellyho/aloha_dish_drainer aloha_dish_drainer
+```
+
+
 <a id="new-vlm"></a>
 ## 💡 Try new VLM backbones!
 

@@ -54,7 +54,7 @@ class ActionEncoding(IntEnum):
     ABS_EEF_R6 = 5          # EEF Absolute XYZ (3) + R6 (6) + Gripper Open/Close (1)
     # fmt: on
 
-tabletop_sim_benchmark_config = {
+tabletop_sim_config = {
     "image_obs_keys": {"primary": "image", "secondary": "left_wrist_image", "wrist": "right_wrist_image"},
     "depth_obs_keys": {"primary": None, "secondary": None, "wrist": None},
     "state_obs_keys": ["state"],
@@ -62,18 +62,10 @@ tabletop_sim_benchmark_config = {
     "action_encoding": ActionEncoding.EEF_R6_BIMANUAL,
 }
 
-anubis_benchmark_config = {
-    "image_obs_keys": {"primary": "agentview_image", "secondary": "left_wrist_image", "wrist": "right_wrist_image"},
-    "depth_obs_keys": {"primary": None, "secondary": None, "wrist": None},
-    "state_obs_keys": ["state"],
-    "state_encoding": StateEncoding.POS_R6_BIMANUAL,
-    "action_encoding": ActionEncoding.EEF_R6_BIMANUAL,
-}
-
-anubis_extra_benchmark_config = {
+anubis_config = {
     "image_obs_keys": {"primary": "image", "secondary": "left_wrist_image", "wrist": "right_wrist_image"},
     "depth_obs_keys": {"primary": None, "secondary": None, "wrist": None},
-    "state_obs_keys": ["eef_state"],
+    "state_obs_keys": ["state"],
     "state_encoding": StateEncoding.POS_R6_BIMANUAL,
     "action_encoding": ActionEncoding.EEF_R6_BIMANUAL,
 }
@@ -142,18 +134,19 @@ robotwin_task_names = [
 
 # === Individual Dataset Configs ===
 OXE_DATASET_CONFIGS = {
-    "anubis_pullout_wrench": anubis_extra_benchmark_config,
-    "anubis_fold_towel": anubis_extra_benchmark_config,
-    "anubis_put_into_pot": anubis_extra_benchmark_config,
-    "anubis_brush_to_pan": anubis_benchmark_config,
-    "anubis_carrot_to_bag": anubis_benchmark_config,
-    "anubis_towel_kirby": anubis_benchmark_config,
-    'aloha_dish_drainer': tabletop_sim_benchmark_config,
-    'aloha_handover_box': tabletop_sim_benchmark_config,
-    'aloha_shoes_table': tabletop_sim_benchmark_config,
-    'aloha_lift_box': tabletop_sim_benchmark_config,
-    'aloha_box_into_pot': tabletop_sim_benchmark_config,
-    'aloha_box_into_pot_easy': tabletop_sim_benchmark_config,
+    "anubis_pullout_wrench": anubis_config,
+    "anubis_fold_towel": anubis_config,
+    "anubis_put_into_pot": anubis_config,
+    "anubis_brush_to_pan": anubis_config,
+    "anubis_carrot_to_bag": anubis_config,
+    "anubis_towel_kirby": anubis_config,
+
+    'aloha_dish_drainer': tabletop_sim_config,
+    'aloha_handover_box': tabletop_sim_config,
+    'aloha_shoes_table': tabletop_sim_config,
+    'aloha_lift_box': tabletop_sim_config,
+    'aloha_box_into_pot_easy': tabletop_sim_config,
+    
     "fractal20220817_data": {
         "image_obs_keys": {"primary": "image", "secondary": None, "wrist": None},
         "depth_obs_keys": {"primary": None, "secondary": None, "wrist": None},

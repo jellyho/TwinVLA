@@ -87,49 +87,10 @@ robotwin_task_names = [
     "turn_switch",
 ]
 
-def anubis_extra_ee_6d_pos_transform(trajectory: Dict[str, Any]) -> Dict[str, Any]:
-    trajectory["action"] = trajectory["action"]
-    trajectory["observation"]["eef_state"] = tf.concat(
-        [
-            trajectory["observation"]["eef_state"][:, :9],
-            -(2 * ((trajectory["observation"]["eef_state"][:, 9:10] + 1.6) / 1.7) - 1),
-            trajectory["observation"]["eef_state"][:, 10:-1],
-            -(2 * ((trajectory["observation"]["eef_state"][:, -1:] + 1.6) / 1.7) - 1),
-        ],
-        axis=-1
-    )
-    trajectory["action"] = tf.concat(
-        [
-            trajectory["action"][:, :9],
-            -(2 * ((trajectory["action"][:, 9:10] + 1.6) / 1.7) - 1),
-            trajectory["action"][:, 10:-1],
-            -(2 * ((trajectory["action"][:, -1:] + 1.6) / 1.7) - 1),
-        ],
-        axis=-1
-    )
-    return trajectory
-
 
 def anubis_ee_6d_pos_transform(trajectory: Dict[str, Any]) -> Dict[str, Any]:
-    trajectory["action"] = trajectory["action"]
-    trajectory["observation"]["state"] = tf.concat(
-        [
-            trajectory["observation"]["state"][:, :9],
-            -(2 * ((trajectory["observation"]["state"][:, 9:10] + 1.6) / 1.7) - 1),
-            trajectory["observation"]["state"][:, 10:-1],
-            -(2 * ((trajectory["observation"]["state"][:, -1:] + 1.6) / 1.7) - 1),
-        ],
-        axis=-1
-    )
-    trajectory["action"] = tf.concat(
-        [
-            trajectory["action"][:, :9],
-            -(2 * ((trajectory["action"][:, 9:10] + 1.6) / 1.7) - 1),
-            trajectory["action"][:, 10:-1],
-            -(2 * ((trajectory["action"][:, -1:] + 1.6) / 1.7) - 1),
-        ],
-        axis=-1
-    )
+    trajectory["action"] = trajectory["action"]["eef_6d_pos"]
+    trajectory["observation"]["state"] = trajectory["observation"]["eef_6d_pos"]
     return trajectory
 
 def tabletop_ee_6d_pos_transform(trajectory: Dict[str, Any]) -> Dict[str, Any]:
@@ -1578,9 +1539,9 @@ OXE_STANDARDIZATION_TRANSFORMS = {
     "anubis_carrot_to_bag": anubis_ee_6d_pos_transform,
     "anubis_towel_kirby": anubis_ee_6d_pos_transform,
     # Anubis new
-    "anubis_pullout_wrench": anubis_extra_ee_6d_pos_transform,
-    "anubis_fold_towel": anubis_extra_ee_6d_pos_transform,
-    "anubis_put_into_pot": anubis_extra_ee_6d_pos_transform,
+    "anubis_pullout_wrench": anubis_ee_6d_pos_transform,
+    "anubis_fold_towel": anubis_ee_6d_pos_transform,
+    "anubis_put_into_pot": anubis_ee_6d_pos_transform,
 }
 
 for tn in robotwin_task_names:
