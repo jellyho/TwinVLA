@@ -13,5 +13,5 @@ LeRobotConfig = {
     'jellyho/aloha_handover_box' : TabletopSimConfig,
     'jellyho/aloha_lift_box' : TabletopSimConfig,
     'jellyho/aloha_shoes_table' : TabletopSimConfig,
-    'euijinrnd/aloha_handover_box__lerobot' : TabletopSimConfig,
+    'jellyho/aloha_box_into_pot_easy' : TabletopSimConfig,
 }
