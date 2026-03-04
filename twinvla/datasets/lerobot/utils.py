@@ -36,15 +36,15 @@ class LeRobotDatasetForTwinVLA(Dataset):
     ):
         self.preprocess_fn = preprocess_fn
         self.action_chunk = future_action_window_size + 1
+        self.config = LeRobotConfig[repo_id]
         self.dataset_meta = LeRobotDatasetMetadata(repo_id)
         self.dataset = LeRobotDataset(
             repo_id,
             delta_timestamps={
-                "action": [t / self.dataset_meta.fps for t in range(self.action_chunk)]
+                self.config['action']: [t / self.dataset_meta.fps for t in range(self.action_chunk)]
             },
         )
         self.dataset_name = repo_id.split('/')[-1]
-        self.config = LeRobotConfig[repo_id]
         self.dataset_statistics = self.parse_stats(self.dataset_meta.stats)
 
         ## prepare constants for normalization
@@ -85,9 +85,9 @@ class LeRobotDatasetForTwinVLA(Dataset):
         img_wrist_right = lerobot_sample[self.config['image_wrist_r']].permute(1, 2, 0).unsqueeze(0) * 255.0
 
         output_dict = {}
-        action, proprio = self.normalize_state_and_action(proprio.unsqueeze(0), action)
-        output_dict['action'] = action # L, D
+        proprio, action = self.normalize_state_and_action(proprio.unsqueeze(0), action)
         output_dict['proprio'] = proprio # 1, D
+        output_dict['action'] = action # L, D
 
         ## This process_inputs_fn should generate labels if needed
         inputs = self.preprocess_fn(img_primary, img_wrist_right, img_wrist_left, language_instruction, action)
