@@ -45,7 +45,7 @@ class LeRobotDatasetForTwinVLA(Dataset):
             },
         )
         self.dataset_name = repo_id.split('/')[-1]
-        self.dataset_statistics = self.parse_stats(self.dataset_meta.stats)
+        self.dataset_statistics = self.compute_stats()
 
         ## prepare constants for normalization
         self.prop_low = torch.from_numpy(self.dataset_statistics[self.dataset_name]['proprio']['q01'])
@@ -65,12 +65,25 @@ class LeRobotDatasetForTwinVLA(Dataset):
         transformed_sample = self.vla_transform(sample)
         return transformed_sample
     
-    def parse_stats(self, stat):
+    def compute_stats(self):
+        # Compute statistics over all frames, exactly like the RLDS pipeline (rlds/utils/data_utils.py).
+        # LeRobot's meta/stats.json is not used: its quantiles are per-episode estimates averaged across
+        # episodes, which gives a much narrower q01/q99 range than the true dataset quantiles.
+        hf_dataset = self.dataset.hf_dataset.with_format(None)
         new_stat = {}
-        new_stat['action'] = stat[self.config['action']]
-        new_stat['action']['mask'] = np.array(self.config['mask'])
-        new_stat['proprio'] = stat[self.config['proprio']]
-        new_stat['proprio']['mask'] = np.array(self.config['mask'])
+        for out_key in ['action', 'proprio']:
+            values = np.asarray(hf_dataset[self.config[out_key]], dtype=np.float32)
+            new_stat[out_key] = {
+                'mean': values.mean(0),
+                'std': values.std(0),
+                'max': values.max(0),
+                'min': values.min(0),
+                'q01': np.quantile(values, 0.01, axis=0),
+                'q99': np.quantile(values, 0.99, axis=0),
+                'mask': np.array(self.config['mask']),
+            }
+        new_stat['num_transitions'] = np.array(len(hf_dataset))
+        new_stat['num_trajectories'] = np.array(self.dataset.meta.total_episodes)
         return {self.dataset_name : new_stat}
 
     def vla_transform(self, lerobot_sample):
@@ -78,6 +91,11 @@ class LeRobotDatasetForTwinVLA(Dataset):
         proprio = lerobot_sample[self.config['proprio']] # D
         action = lerobot_sample[self.config['action']] # L, D
         language_instruction = lerobot_sample[self.config['language_instruction']]
+        # Some datasets (e.g. converted from HDF5) store the task as bytes; without decoding, the prompt
+        # would contain the literal "b'...'" repr. Match the RLDS loader: decode and lowercase.
+        if isinstance(language_instruction, (bytes, bytearray)):
+            language_instruction = language_instruction.decode()
+        language_instruction = language_instruction.lower()
 
         # Image shape should be (1, H, W, C)
         img_primary = lerobot_sample[self.config['image_primary']].permute(1, 2, 0).unsqueeze(0) * 255.0 
@@ -96,15 +114,16 @@ class LeRobotDatasetForTwinVLA(Dataset):
         return output_dict
 
     def normalize_state_and_action(self, state, action):
+        # Same as the RLDS BOUNDS_Q99 normalization, including the clip to [-1, 1].
         with torch.no_grad():
             state = torch.where(
                 self.prop_mask,
-                (state - self.prop_low) * 2 / (self.prop_high - self.prop_low + 1e-6) - 1,
+                torch.clamp((state - self.prop_low) * 2 / (self.prop_high - self.prop_low + 1e-6) - 1, -1, 1),
                 state
             )
             action = torch.where(
                 self.act_mask,
-                (action - self.act_low) * 2 / (self.act_high - self.act_low + 1e-6) - 1,
+                torch.clamp((action - self.act_low) * 2 / (self.act_high - self.act_low + 1e-6) - 1, -1, 1),
                 action
             )
         return state, action

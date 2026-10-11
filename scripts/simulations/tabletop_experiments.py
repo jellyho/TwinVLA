@@ -103,7 +103,9 @@ def eval_tabletop(cfg: Config) -> None:
                         image=front_img,
                         image_wrist_r=right_wrist_img,
                         image_wrist_l=left_wrist_img,
-                        proprio=proprio
+                        proprio=proprio,
+                        action_len=cfg.action_len,
+                        cfg=cfg.cfg,
                     )
 
                 action = actions[action_counter]
